@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE>serverlist</TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <script src="/static/js/jquery-1.8.3.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script> 
+	<link rel="stylesheet" href="/static/css/demo.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.ztree.core-3.5.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.ztree.excheck-3.5.js"></script>
+    <style type="text/css">
+        
+	    a {text-decoration: none;font-weight:  4px;font-size: 20px}
+    </style>
+	<SCRIPT type="text/javascript">
+	
+	var setting = {
+		view: {
+			selectedMulti: false
+		},
+		check: {
+			enable: true
+		},
+		data: {
+			key:{
+				name:"serverId",
+                children:"nodes"
+					// url:"url_"
+				},
+			simpleData: {
+				enable: true,
+				idKey:"id",
+				pIdKey:"parentId",
+				rootPid:0
+				}
+			},
+			callback:{
+                beforeCheck:beforeCheck,
+				onCheck:onCheck
+			}
+		};
+
+var code,log,className = "dark";
+function beforeCheck(treeId,treeNode){
+    className = (className === "dark" ? "":"dark");
+    showLog("[ "+getTime()+" beforeCheck ]&nbsp;&nbsp;&nbsp;&nbsp;" + treeNode.name );
+    return (treeNode.doCheck !== false);
+}
+function onCheck(e,treeId,treeNode){
+    showLog("[ "+getTime()+" onCheck ]&nbsp;&nbsp;&nbsp;&nbsp;" + treeNode.name );
+    getAllChangeNodes()
+
+}
+function showLog(str){
+    if (!log) log=$("#log");
+    log.append("<li class='"+className+"'>"+str+"</li>");
+    if(log.children("li").length>6){
+        log.get(0).removeChild(log.children("li"[0]));
+    }
+
+}
+function getTime(){
+    var now=new Date(),
+        h=now.getHours(),
+        m=now.getMinutes(),
+        s=now.getSeconds(),
+        ms=now.getMilliseconds();
+    return (h+":"+m+":"+s+" "+ms);
+
+
+}
+var zTree;
+var treeNodes;
+
+$(function(){
+	//从后台获取数据到前端 
+	$.ajax({
+		async: false,
+		cache: false,
+		type: 'get',
+		dataType : "json",
+		url: "/get_tree_data",//请求的action路径
+		error: function () {//请求失败处理函数
+			alert('请求失败');
+		},
+		success:function(data){ //请求成功后处理函数。  
+			//alert(data);
+			//console.log(data);
+			   json = JSON.stringify(data);
+               host_tree_data = JSON.parse(json);
+			  //把后台封装好的简单Json格式赋给treeNodes
+			zTree =	$.fn.zTree.init($("#treeDemo"), setting, host_tree_data);
+			$("#checkTrue").bind("click", {type:"checkTrue"}, checkNode);
+
+   			$("#checkFalse").bind("click", {type:"checkFalse"}, checkNode);
+
+   			$("#toggle").bind("click", {type:"toggle"}, checkNode);
+
+   			$("#checkTruePS").bind("click", {type:"checkTruePS"}, checkNode);
+
+   			$("#checkFalsePS").bind("click", {type:"checkFalsePS"}, checkNode);
+
+   			$("#togglePS").bind("click", {type:"togglePS"}, checkNode);
+
+   			$("#checkAllTrue").bind("click", {type:"checkAllTrue"}, checkNode);
+
+   			$("#checkAllFalse").bind("click", {type:"checkAllFalse"}, checkNode);
+
+
+   			$("#autoCallbackTrigger").bind("change", {}, setAutoTrigger);
+		}
+	});
+});
+//function onCheck(e,treeId, treeNode){
+    
+
+ //	alert(treeNode);
+ //}
+
+
+//前端将数据发送到后端
+function getAllChangeNodes(){
+	var treeObj = $.fn.zTree.getZTreeObj('treeDemo');
+	var nodes = treeObj.getChangeCheckedNodes();
+//	$('#mytest').html(JSON.stringify(nodes));
+	var url="/set_tree";
+	var data = {};
+	data['jsonTree'] = JSON.stringify(nodes);
+	
+	jQuery.ajax({
+		type:"POST",
+		url:url,
+		data:data,
+		dataType:"json",
+//		beforeSend:function(xhr,settings){
+//			var csrftoken = $.cookie('csrftoken');
+//			xhr.setRequestHeader("X-CSRFToken",csrftoken);
+//		},
+		
+		
+
+		success:function(data){
+			alert(data);
+			//console.log(data);
+
+		}
+	});
+}
+
+function checkNode(e) {
+
+   var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+
+   type = e.data.type,
+
+   nodes = zTree.getSelectedNodes();
+
+   if (type.indexOf("All")<0 && nodes.length == 0) {
+
+    alert("请先选择一个节点");
+
+   }
+
+
+   if (type == "checkAllTrue") {
+
+    zTree.checkAllNodes(true);
+
+   } else if (type == "checkAllFalse") {
+
+    zTree.checkAllNodes(false);
+
+   } else {
+
+    var callbackFlag = $("#callbackTrigger").attr("checked");
+
+    for (var i=0, l=nodes.length; i<l; i++) {
+
+     if (type == "checkTrue") {
+
+      zTree.checkNode(nodes[i], true, false, callbackFlag);
+
+     } else if (type == "checkFalse") {
+
+      zTree.checkNode(nodes[i], false, false, callbackFlag);
+
+     } else if (type == "toggle") {
+
+      zTree.checkNode(nodes[i], null, false, callbackFlag);
+
+     }else if (type == "checkTruePS") {
+
+      zTree.checkNode(nodes[i], true, true, callbackFlag);
+
+     } else if (type == "checkFalsePS") {
+
+      zTree.checkNode(nodes[i], false, true, callbackFlag);
+
+     } else if (type == "togglePS") {
+
+      zTree.checkNode(nodes[i], null, true, callbackFlag);
+
+     }
+
+    }
+
+   }
+
+  }
+
+
+  function setAutoTrigger(e) {
+
+   var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+
+   zTree.setting.check.autoCheckTrigger = $("#autoCallbackTrigger").attr("checked");
+
+   $("#autoCheckTriggerValue").html(zTree.setting.check.autoCheckTrigger ? "true" : "false");
+
+  }
+
+
+
+
+// }
+  //-->
+ </SCRIPT>
+</HEAD>
+
+<BODY>
+<h1>服务器更新操作</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+			<ul id="treeDemo" class="ztree"></ul>
+		</div>
+		<div class="col-md-6">
+					<!--page content -->
+            <div class="nav nav-tabs" role="tablist">
+                <li role="presentation"><a href="{% url 'updatejava' %}">java更新</a></li>
+                <li role="presentation"><a href="#">gamedata更新</a></li>
+                <li role="presentation"><a href="#">php更新</a></li>
+                <li><a href="{% url 'searchjavalog' %}" target="content">java日志查看</a></li>
+            </div>
+
+
+		</div>
+					
+					
+		</div>	
+
+		
+	</div>
+</div>
+</BODY>
+</HTML>

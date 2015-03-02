@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="example-fluid-layout.css" rel="stylesheet">
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<script src="/static/js/jquery-1.8.3.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>	
+	<style type="text/css">
+	a {text-decoration: none;font-weight:  4px;font-size: 20px}
+	li {float: left;}
+	body
+	{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	height: 100%;
+	max-height: 100%;
+	}
+	#maincontent
+	{
+	height: 1000px;
+	width: 100%;
+	}
+	#content
+	{
+	height: 100%;
+	width: 100%;
+	}
+	</style>
+	<script language="javascript" type="text/javascript">
+function SetWinHeight(obj)
+{
+var win=obj;
+if (document.getElementById)
+{
+if (win &&!window.opera)
+{
+if (win.contentDocument && win.contentDocument.body.offsetHeight) 
+win.height = win.contentDocument.body.offsetHeight; 
+else if(win.Document && win.Document.body.scrollHeight)
+win.height = win.Document.body.scrollHeight;
+}
+}
+}
+</script>
+	
+</head>
+<body>
+		<nav class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+	
+				<div class="navbar-header">
+      				<a class="navbar-brand" href="http://192.168.5.6:8000/check">
+        			<img alt="墨龙科技" src="/static/img/bg10.jpg" style="height:27px;">
+      				</a>
+    			</div>
+				
+			<div class="nav-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav nav-pills" role="tablist" >
+					<li><a href="test2.html" target="content">首页</a></li>
+					<li role="presentation"><a href="deploy.html" target="content">环境部署</a></li>
+					<li role="presentation"><a href="createserver.html" target="content">开服</a></li>
+					<li role="presentation"><a href="mergeserver.html" target="content">合服</a></li>
+					<li role="presentation"><a href="update.html" target="content">更新</a></li>
+					<li role="presentation"><a href="monitor.html" target="content">监控</a></li>
+                    {% if perms.auth.abc %}
+					    <li role="presentation"><a href="logview.html" target="content">日志查看</a></li>
+                    {% endif %}
+                    {% if perms.auth.abc %}
+					    <li role="presentation"><a href="help.html" target="content">操作帮助</a></li>
+                    {% endif %}
+					<li class='dropdown'>
+						<a href="#" class='dropdown-toggle' data-toggle='dropdown'>日志查看<span class='caret'></span></a>
+						<ul class='dropdown-menu'>
+							<li><a href="{% url 'SearchPhpLog' %}" target="content">php日志查看</a></li>
+                    <!--        				<li><a href="{% url 'checkjavalog' %}" target="content">java日志搜索</a></li>
+                            				<li><a href="{% url 'searchjavalog' %}" target="content">java日志查看</a></li>
+                            				<li><a href="{% url 'downjavalog' %}" target="content">java日志下载</a></li>
+                            				<li><a href="{% url 'ExecCommand' %}" target="content">java命令执行</a></li> -->
+
+						</ul>
+					</li>
+					<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">rolin</a></p>
+				</ul>
+			</div>
+			
+        </div>
+	</nav>
+	<div id="maincontent">
+		<iframe id="content" name="content"  frameborder="0" onload="Javascript:SetWinHeight(this)" scrolling="auto" width="100%"></iframe>
+	</div>
+</body>
+</html>

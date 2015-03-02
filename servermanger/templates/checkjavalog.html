@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/css/bootstrap.css" rel="stylesheet">
+        <script src="/static/js/jquery-1.8.3.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script> 
+        <!--<link href="/static/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+        <!--    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"> -->
+    <script type="text/javascript">
+			$(document).ready(function() { 
+				$("#e1").select2(); 
+				$("#e2").select2() ;
+				$("#e2").on("select2-close", function() {
+				 if ($("#e2").val() =="add") {
+					var addtext = prompt("增加日志路径","addlogpath");
+                    var addtext = prompt('增加日志类型','addlogtype')
+					 $("#add").before("<option value='"+addtext+"'>"+addtext+"</option>");
+				}
+
+				});
+			});
+            
+
+            
+	</script>
+	<style type="text/css">
+    .comments{
+    width:100%;
+    overflow:auto;
+    word-break:break-all;
+    }
+	.red{color:#f00;}
+	</style>
+    <script src="/static/js/jquery-validate.bootstrap-tooltip.min.js" type="text/javascript"></script>	
+	 <link href="/static/css/select2.css" rel="stylesheet"/>
+	 <script src="/static/js/select2.js"></script>
+	</head>
+	<body>
+        
+            <script>
+            $("#theform").validate({
+                rules:{
+                    thefield:{required:true}
+                }
+                toolip_option:{
+                    thefield:{placement:'left'}
+                }
+                });
+            </script>
+    
+			<form class='form-inline'  method='post' enctype="multipart/form-data" id="signupForm">
+				<div class='form-group'>
+					<select name='agent'  id='e1' style='width: 120px;'>
+                        {%for agent in result2 %}
+                        <option value={{agent}}>{{agent}}</option>
+                        {%endfor%}
+<!--    					<option value='360'>360</option>
+    					<option value='6711'>6711</option>
+                        <option value='顺网蝌蚪'>顺网蝌蚪</option> -->
+
+    				
+    				</select>
+					
+				</div>
+				<div class='form-group'>
+
+					<select  name='logdir'  id='e2' style='width: 320px;' onchange=if(s=document.getElementById("S1")){s.style.color=value}>
+                        		{%for log in result %}
+    					<!--<option value='/data/www/weblog/rmblog'>/data/www/weblog/rmblog</option> -->
+                        		<option value={{ log.logpath}}>{{ log.logpath }}</option>
+    					<!--<option value='screenlog'>screenlog</option>
+    					<option value='queryuserlog'>queryuserlog</option>
+    					<option value='loginerror'>loginerror</option>
+    					<option value='loginlog'>loginlog</option>
+                        <option value='loginlog'>loginlog</option> -->
+                        		{%endfor%}
+                                <!--<option value='add' id='add' style='color: #f00;' class='red'>add</option> -->
+    				
+    					</select>
+
+
+					
+				</div>
+				
+				<div class='form-group'>
+					<label class='sr-only' for='name'>输入查看区服</label>
+					<input type='text' class='form-control required input-sm' name='zone'  placeholder='输入查看区服' required>
+					
+				</div>
+				
+				
+				
+				<div class='form-group'>
+				<!--	<div class="input-append date form_datetime"> -->
+					<script language="javascript" type="text/javascript" src="http://120.138.75.88/download/My98DatePicker/WdatePicker.js"></script>
+      					<input type="text"  name='date' placeholder="请选择时间" class='input-sm form-control' onclick="WdatePicker()">
+      				<!-- <span class='add-on'><i class='icon-remove'></i></span> -->
+      					<!--<span class="add-on"><i class='icon-th'></i></span>-->
+    				
+    			
+    				</div>
+    				<script type="text/javascript">
+      					$('.form_datetime').datetimepicker({
+        					format: "MM/dd/yyyy hh",
+        					lautoclose: true,
+        					todayBtn: true,
+        					startDate: "2013-02-14 10:00",
+        				
+        					pickerPosition: "bottom-left"
+      					});
+    				</script>
+					
+				</div>
+				<div class='form-group'>
+					<label class='sr-only' for='name'>请输入小时段</label>
+					<input type='text' class='form-control input-sm' name='hour'  placeholder='输入小时段' required>
+                </div>
+                
+				<div class='form-group'>
+					<label class='sr-only' for='name'>请输入查询关键字</label>
+					<input type='text' class='form-control input-sm' name='key'  placeholder='输入查询关键字' required> 
+                </div>
+			<!--	<div class='form-group'>
+					<label class='sr-only' for='name'>输入查看条数</label>
+					<input type='text' class='form-control' name='sum'  placeholder='输入查看条数'>
+					
+				</div>
+-->
+				<div class='form-group'>
+					 <button type="submit" class="btn btn-primary">提交</button>
+					
+				</div>
+				<div class='form-group'>
+					 
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加路径</button>
+				</div>
+			</form>
+
+			<form role='form'>
+				<div class='form-group'>
+					<label for='name'>java日志搜索信息:</label>
+					<textarea class='form-control comments' rows='42' wrap='Virtual' onpropertychange="this.style.posHeight=this.scrollHeight">{{result3}}</textarea>
+				</div>
+			</form>
+            <script>
+            $("#theform").validate({
+                rules:{
+                    thefield:{required:true}
+                }
+                toolip_option:{
+                    thefield:{placement:'left'}
+                }
+                });
+            </script>
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">路径添加</h4>
+                      </div>
+                      <div class="modal-body">
+                        <script>
+                        $("#theform").validate({
+                            rules:{
+                                thefield:{required:true}
+                            }
+                            toolip_option:{
+                                thefield:{placement:'left'}
+                            }
+                        });
+                        </script>
+
+                          <form>
+                          <label>添加日志路径:</label>
+                        <input id="url" type='text' required><br>
+			<label>添加日志名字:</label>
+                        <input id="logname" type='text' required><br>
+                        <label>添加日志类型:</label>
+                        <select id="type">
+                            <option>hour</option>
+                            <option>day</option>
+                        </select>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" id="urlSubmitBtn" class="btn btn-primary">提交</button>
+                      </div>
+                </div>
+              </div>
+        </div>
+
+	<script>
+
+            $("#urlSubmitBtn").click(function(){
+                    $.post("/test/",{url:$("#url").val(),type:$("#type").val()},function(data,status){
+                        alert(data + 'add' + status);
+                        })
+                  // alert($("#url").val());
+             });
+	</script>
+	</body>
+</html>
