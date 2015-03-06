@@ -1,0 +1,14 @@
+[2015-03-06-07-12-25]: logpath is exist
+[2015-03-06-07-12-47]: logpath is exist
+[2015-03-06-07-12-58]: logpath is exist
+[2015-03-06-07-13-11]: logpath is exist
+[2015-03-06-07-13-58]: logpath is exist
+[2015-03-06-07-16-03]: logpath is exist
+[2015-03-06-07-18-41]: logpath is exist
+[2015-03-06-07-28-02]: can not find logname
+[2015-03-06-07-28-02]: tail -n 100 /data/game/qmrserver1/qmrserver/game/logs/QMRserver.log.2015030615
+[2015-03-06-07-30-08]: can not find logname
+[2015-03-06-07-30-08]: cd /data/game/qmrserver1/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.1.201503060730.tgz  QMRserver.log.2015030601 QMRserver.log.2015030602 QMRserver.log.2015030603 QMRserver.log.2015030604 QMRserver.log
+[2015-03-06-08-14-59]: logpath is exist
+[2015-03-06-08-15-48]: can not find logname
+[2015-03-06-08-15-48]: tail -n 100 /data/game/qmrserver1/qmrserver/game/logs/QMRserver.log.2015030616

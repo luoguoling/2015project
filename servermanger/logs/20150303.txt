@@ -1,0 +1,64 @@
+[2015-03-03-06-11-58]: logpath is exist
+[2015-03-03-06-11-59]: {"msg": "/data/www/weblog/hgpupugame/rmblog/2015-02-22.txt", "code": "0"}
+[2015-03-03-06-52-38]: logpath is exist
+[2015-03-03-06-52-38]: ansible exec error
+[2015-03-03-06-55-43]: logpath is exist
+[2015-03-03-06-55-44]: {"msg": "/data/www/weblog/hgpupugame/rmblog/2015-02-23.txt", "code": "0"}
+[2015-03-03-06-56-12]: logpath is exist
+[2015-03-03-06-56-12]: {"msg": "/data/www/weblog/hgpupugame/rmblog/2015-03-03.txt", "code": "0"}
+[2015-03-03-07-20-46]: logpath is exist
+[2015-03-03-07-20-47]: {"msg": "/data/www/weblog/hgpupugame/rmblog/2015-02-04.txt", "code": "0"}
+[2015-03-03-07-22-32]: logpath is exist
+[2015-03-03-07-22-33]: {"msg": "/data/www/weblog/hgpupugame/rmblog/2015-02-04.txt", "code": "0"}
+[2015-03-03-07-23-34]: logpath is exist
+[2015-03-03-07-23-34]: {"msg": "", "code": "2"}
+[2015-03-03-07-24-44]: logpath is exist
+[2015-03-03-07-24-44]: {"msg": "/data/www/weblog/hgpupugame/rmblog/2015-02-28.txt", "code": "0"}
+[2015-03-03-07-31-33]: logpath is exist
+[2015-03-03-07-31-33]: {"msg": "", "code": "2"}
+[2015-03-03-07-32-19]: logpath is exist
+[2015-03-03-07-32-19]: {"msg": "/data/www/weblog/hgpupugame/rmblog/2015-03-02.txt", "code": "0"}
+[2015-03-03-07-34-53]: logpath is exist
+[2015-03-03-07-34-53]: {"msg": "", "code": "2"}
+[2015-03-03-07-35-11]: logpath is exist
+[2015-03-03-07-35-11]: {"msg": "", "code": "2"}
+[2015-03-03-07-39-39]: logpath is exist
+[2015-03-03-07-39-39]: {"msg": "/data/www/weblog/hgpupugame/rmblog/2015-02-04.txt", "code": "0"}
+[2015-03-03-07-53-33]: logpath is exist
+[2015-03-03-07-53-34]: ansible exec error
+[2015-03-03-07-56-18]: logpath is exist
+[2015-03-03-07-56-18]: {"msg": "2015-02-23.txt", "code": "0"}
+[2015-03-03-08-18-18]: logpath is exist
+[2015-03-03-08-18-18]: {"msg": "2015-02-04.txt", "code": "0"}
+[2015-03-03-08-19-54]: logpath is exist
+[2015-03-03-08-19-55]: {"msg": "2015-02-04.txt", "code": "0"}
+[2015-03-03-08-22-47]: logpath is exist
+[2015-03-03-08-22-47]: {"msg": "2015-02-10.txt", "code": "0"}
+[2015-03-03-08-33-18]: logpath is exist
+[2015-03-03-08-33-19]: {"msg": "2015-02-10.txt", "code": "0"}
+[2015-03-03-08-36-09]: logpath is exist
+[2015-03-03-08-36-10]: {"msg": "2015-03-03.txt", "code": "0"}
+[2015-03-03-08-52-27]: logpath is exist
+[2015-03-03-08-52-27]: {"msg": "", "code": "2"}
+[2015-03-03-08-53-35]: logpath is exist
+[2015-03-03-08-53-35]: {"msg": "", "code": "2"}
+[2015-03-03-08-54-56]: logpath is exist
+[2015-03-03-08-54-57]: {"msg": "", "code": "2"}
+[2015-03-03-09-01-07]: logpath is exist
+[2015-03-03-09-01-07]: {"msg": "", "code": "2"}
+[2015-03-03-09-38-32]: logpath is exist
+[2015-03-03-09-38-33]: {"msg": "", "code": "2"}
+[2015-03-03-09-43-46]: logpath is exist
+[2015-03-03-09-46-47]: logpath is exist
+[2015-03-03-09-50-41]: logpath is exist
+[2015-03-03-09-50-41]: {"msg": "2015-02-04.txt", "code": "0"}
+[2015-03-03-09-53-45]: logpath is exist
+[2015-03-03-09-53-45]: {"msg": "2015-02-02.txt", "code": "0"}
+[2015-03-03-09-55-02]: logpath is exist
+[2015-03-03-09-55-02]: {"msg": "2015-02-04.txt", "code": "0"}
+[2015-03-03-13-51-36]: logpath is exist
+[2015-03-03-13-51-36]: {"msg": "2015-02-04.txt", "code": "0"}
+[2015-03-03-14-13-05]: logpath is exist
+[2015-03-03-14-13-05]: {"msg": "2015-02-01.txt\n2015-02-02.txt\n2015-02-03.txt\n2015-02-04.txt", "code": "0"}
+[2015-03-03-14-13-57]: logpath is exist
+[2015-03-03-14-13-57]: {"msg": "2015-02-02.txt\n2015-02-03.txt\n2015-02-04.txt\n2015-02-05.txt\n2015-02-10.txt\n2015-02-12.txt\n2015-02-13.txt\n2015-02-14.txt\n2015-02-16.txt\n2015-02-17.txt\n2015-02-18.txt\n2015-02-19.txt\n2015-02-20.txt\n2015-02-21.txt\n2015-02-22.txt", "code": "2"}

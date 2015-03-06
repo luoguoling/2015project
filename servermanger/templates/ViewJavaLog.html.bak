@@ -50,8 +50,7 @@
                 });
             </script>
     
-			<form class='form-inline'  method='post'  role='form' enctype="multipart/form-data">
-				{% csrf_token %}
+			<form class='form-inline'  method='post' enctype="multipart/form-data" id="signupForm">
 				<div class='form-group'>
 					<select name='agent'  id='e1' style='width: 120px;'>
                         {%for agent in result2 %}
@@ -82,7 +81,7 @@
 				</div>
 				<div class='form-group'>
 
-					<select  name='logfile'  id='e3' style='width: 120px;' onchange=if(s=document.getElementById("S1")){s.style.color=value}>
+					<select  name='logname'  id='e3' style='width: 120px;' onchange=if(s=document.getElementById("S1")){s.style.color=value}>
                         		{%for log in result %}
 
                         		<option value={{ log.logname}}>{{ log.logname }}</option>
@@ -106,7 +105,7 @@
 				
 				<div class='form-group'>
 				<!--	<div class="input-append date form_datetime"> -->
-					<script language="javascript" type="text/javascript" src="http://120.138.75.88/download/My97DatePicker/WdatePicker.js"></script>
+					<script language="javascript" type="text/javascript" src="http://120.138.75.88/download/My98DatePicker/WdatePicker.js"></script>
       					<input type="text"  name='date' placeholder="请选择时间" class='input-sm form-control' onclick="WdatePicker()">
       				<!-- <span class='add-on'><i class='icon-remove'></i></span> -->
       					<!--<span class="add-on"><i class='icon-th'></i></span>-->
@@ -127,7 +126,7 @@
 				</div>
 				<div class='form-group'>
 					<label class='sr-only' for='name'>查看条数</label>
-					<input type='text' class='form-control input-sm' name='hour'  placeholder='小时段,1-4,5,6' required>
+					<input type='text' class='form-control input-sm' name='logAccount'  placeholder='输入小时段' required>
                 </div>
                 
 
@@ -149,8 +148,8 @@
 
 			<form role='form'>
 				<div class='form-group'>
-					<label for='name'>java日志下载地址:</label>
-					<a href={{result3}}>{{result3}}</a>
+					<label for='name'>java日志搜索信息:</label>
+					<textarea class='form-control comments' rows='42' wrap='Virtual' onpropertychange="this.style.posHeight=this.scrollHeight">{{result3}}</textarea>
 				</div>
 			</form>
             <script>
@@ -183,10 +182,9 @@
                         </script>
 
                           <form>
-                          {% csrf_token %}
                           <label>添加日志路径:</label>
                         <input id="url" type='text' required><br>
-			<label>添加日志名字:</label>
+						<label>添加日志名字:</label>
                         <input id="logname" type='text' required><br>
                         <label>添加日志类型:</label>
                         <select id="type">

@@ -15,11 +15,9 @@ def splithour(hour):
             for check in range(int(start),int(end)+1):
                 if len(str(check)) == 1:
                     check = ('0' + str(check))
-
-                checktime.append(str(check))
-        else:
-            checktime.append(hour)
-            print checktime
+		checktime.append(str(check))
+	else:
+	    checktime.append(hour)
     else:
         checktime1 = hour.split(',')
 
@@ -34,15 +32,13 @@ def splithour(hour):
                 end = aa[1]
 
                 for check in range(int(start),int(end)+1):
-
                     if len(str(check)) == 1:
                         check = ('0' + str(check))
-                        #checktime.append(check)
-                    checktime.append(str(check))
+		    checktime.append(str(check))
         for length in range(1,len(checktime1)):
 
             checktime.append(checktime1[length])
-            print checktime
+        print checktime
     return checktime
-splithour('1')
+
 

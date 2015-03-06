@@ -6,6 +6,7 @@ from django.contrib import admin
 # Create your models here.
 class AddLogpath(models.Model):
 	logpath = models.CharField(max_length=500)
+	logname = models.CharField(max_length=100)
         logtype = models.CharField(max_length=50)
         def __unicode__(self):
             return self.logpath

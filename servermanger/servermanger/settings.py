@@ -75,7 +75,7 @@ DATABASES = {
   #  }
 'default':{
         'ENGINE':'django.db.backends.mysql',
-        'NAME':'servermangerdb',
+        'NAME':'servermangerdb3',
         'USER':'backQe784Egs',
         'PASSWORD':'AesrtieDE384kh6lkABeu3',
         'HOST':'127.0.0.1',

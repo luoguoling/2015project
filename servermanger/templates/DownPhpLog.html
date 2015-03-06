@@ -63,7 +63,7 @@
 				
 				<div class='form-group'>
 				<!--	<div class="input-append date form_datetime"> -->
-					<script language="javascript" type="text/javascript" src="http://120.138.75.88/download/My98DatePicker/WdatePicker.js"></script>
+					<script language="javascript" type="text/javascript" src="http://120.138.75.88/download/My99DatePicker/WdatePicker.js"></script>
       					<input type="text"  name='date' placeholder="请选择时间" class='input-sm form-control' onclick="WdatePicker()">
       				<!-- <span class='add-on'><i class='icon-remove'></i></span> -->
       					<!--<span class="add-on"><i class='icon-th'></i></span>-->
@@ -89,7 +89,7 @@
 				</div>
 				<div class='form-group'>
 					<label class='sr-only' for='name'>输入小时</label>
-					<input type='text' class='input-sm form-control' name='sum'  placeholder='输入1-4,22'>
+					<input type='text' class='input-sm form-control' name='hour'  placeholder='输入1-4,22'>
 					
 				</div>
 
@@ -105,8 +105,9 @@
 
 			<form role='form'>
 				<div class='form-group'>
-					<label for='name'>php日志信息:</label>
-					<textarea class='form-control' rows='42' wrap='Virtual'>{{result3}}</textarea>
+					<label for='name'>php日志下载地址:</label>
+					<!--<textarea class='form-control' rows='42' wrap='Virtual'>{{result3}}</textarea> -->
+					<a href={{result3}}>{{result3}}</a>
 				</div>
 			</form>
 	</body>
