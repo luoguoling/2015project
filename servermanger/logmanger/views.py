@@ -379,7 +379,7 @@ def DownJavaLog(request):
             write_log('can not find logname')
    # timeArray = time.strptime(logTime,"%Y-%m-%d %H:%M:%S")
 #    basedir = '/data/game/qmrserver%s/qmrserver' % (serverId)
-        linkaddress = 'http://%s/download/%s.gamelog.%s..%s.tgz' % (serverIp,agent,serverId,curtime)
+        linkaddress = 'http://%s/download/%s.gamelog.%s.%s.tgz' % (serverIp,agent,serverId,curtime)
         logNamelist = []
         if queryset == 'hour':
             otherStyleTime = time.strftime("%Y%m%d",timeArray)
