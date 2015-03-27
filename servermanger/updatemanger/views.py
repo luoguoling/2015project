@@ -41,10 +41,8 @@ def JSONGetView(request):
                 server['parentId'] = value
                 if server not in tree_list:
                     tree_list.append(server)
-    tree_list1 = [{'serverId': '中国', 'ipaddress': u'192.168.1.1', 'agent': u'37wan','parentId':0,"id":1},{'serverId':2L,'ipaddress':u'192.168.3.3','agent':u'中国','parentId':1,'id':7},{'serverId': 2L, 'ipaddress': u'192.168.1.2', 'agent': u'6711','parentId':0,'id':2},{'serverId': 1L, 'ipaddress': u'192.168.2.1', 'agent': u'1','parentId':2,'id':3},{'serverId':2L,'ipaddress':u'192.168.2.2','agent':u'2','parentId':2,'id':4}]
     result = json.dumps(tree_list)
     print 'result is....'
-#    print result
     return HttpResponse(result,content_type="application/json")
 @csrf_exempt
 def JSONSetView(request):
@@ -102,7 +100,7 @@ def updatejava(request):
              AnsibleApiResult = json.loads(AnsibleApi(AnsibleModuleName,AnsibleInventory,AnsibleCommand))
                 #print ip
 
-#             ExecResult =  AnsibleApiResult['contacted']['%s' % ip]['changed']
+#             ExecResult =  AnsibleApiResult['contacted']['%s' % ip]['rc']
 #             print ExecResult
                 #if not AnsibleApiResult:
                  #   AnsibleApiResult = 'not exec success'
