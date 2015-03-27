@@ -5,6 +5,7 @@ import json
 def AnsibleApi(AnsibleModuleName,AnsibleInventory,AnsibleCommand):
     ReturnMsg = {}
     runner = ansible.runner.Runner(
+#	remote_user = username,
         module_name = AnsibleModuleName,
         inventory = AnsibleInventory,
         module_args = AnsibleCommand,

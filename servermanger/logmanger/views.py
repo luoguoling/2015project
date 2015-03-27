@@ -304,10 +304,12 @@ def ViewJavaLog(request):
         AnsibleCommand = "tail -n %s %s" %(logAccount,logName)
         write_log(AnsibleCommand)
         try:
+            print 'ipadd'
+            print AnsibleInventory
             AnsibleApiResult = (json.loads(AnsibleApi(AnsibleModuleName,AnsibleInventory,AnsibleCommand)))['msg']
 	    if not AnsibleApiResult:
                 AnsibleApiResult = "日志没有被发现 也就是没有的意思那!!!"
-#	    write_log(AnsibleApiResult)
+	        write_log(AnsibleApiResult)
         except:
             write_log('ansible command fail')
 
@@ -404,6 +406,7 @@ def DownJavaLog(request):
             logNamelist.append(logName)
 	print logNamelist
         serverIp = [serverIp]
+	username = 'molong'
         AnsibleModuleName = "shell"
         AnsibleInventory = ansible.inventory.Inventory(serverIp)
         AnsibleCommand = "cd /data/game/qmrserver%s/qmrserver/%s  &&  tar  zvcf /data/www/download/%s.gamelog.%s.%s.tgz  %s" %(serverId,logPath,agent,serverId,curtime," ".join(logNamelist))

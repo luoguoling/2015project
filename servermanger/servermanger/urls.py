@@ -15,6 +15,11 @@ urlpatterns = patterns('',
     url(r'^test/','logmanger.views.test',name='test'),
     url(r'^ViewJavaLog/','logmanger.views.ViewJavaLog',name='ViewJavaLog'),
     url(r'^DownJavaLog/','logmanger.views.DownJavaLog',name='DownJavaLog'),
-    url(r'^Nopri/','logmanger.views.Nopri',name='Nopri')
+    url(r'^Nopri/','logmanger.views.Nopri',name='Nopri'),
+    #about updatemanger
+    url(r'^get_tree_data','updatemanger.views.JSONGetView',name='get_tree_data'),
+    url(r'^set_tree','updatemanger.views.JSONSetView',name='set_tree'),
+    url(r'^viewztree','updatemanger.views.ViewZtree',name='viewztree'),
+    url(r'^updatejava','updatemanger.views.updatejava',name='updatejava')
 
 )

@@ -44,7 +44,7 @@ def JSONGetView(request):
     tree_list1 = [{'serverId': '中国', 'ipaddress': u'192.168.1.1', 'agent': u'37wan','parentId':0,"id":1},{'serverId':2L,'ipaddress':u'192.168.3.3','agent':u'中国','parentId':1,'id':7},{'serverId': 2L, 'ipaddress': u'192.168.1.2', 'agent': u'6711','parentId':0,'id':2},{'serverId': 1L, 'ipaddress': u'192.168.2.1', 'agent': u'1','parentId':2,'id':3},{'serverId':2L,'ipaddress':u'192.168.2.2','agent':u'2','parentId':2,'id':4}]
     result = json.dumps(tree_list)
     print 'result is....'
-#    print result
+    print result
     return HttpResponse(result,content_type="application/json")
 @csrf_exempt
 def JSONSetView(request):
@@ -72,11 +72,10 @@ def updatejava(request):
     json_tree = request.POST.get('jsonTree')
     print 'json_tree is ..'
 #    print json_tree
-    tree_list = []
     try:
         tree_change_nodes = json.loads(json_tree)
 #        print tree_change_nodes
-#        tree_list = []
+        tree_list = []
         for i in tree_change_nodes[1:]:
             newdic = {}
             for n in i.keys():
@@ -88,27 +87,26 @@ def updatejava(request):
                     newdic['javadir'] = i['javadir']
                     if newdic not in tree_list:
                         tree_list.append(newdic)
-    except:
-        pass
 	#print tree_list
-    for tt in tree_list:
-        print tt['agent'],tt['zone'],tt['ip'],tt['gamedata'],tt['javadir']
-        serverIp = [tt['ip']]
-        ip = serverIp[0]
-        AnsibleModuleName = "synchronize"
-        AnsibleInventory = ansible.inventory.Inventory(serverIp)
-        AnsibleCommand = "src=/var/ftp/qmrserver/ dest=%s" % tt['javadir']
-        try:
-             AnsibleApiResult = json.loads(AnsibleApi(AnsibleModuleName,AnsibleInventory,AnsibleCommand))
+        for tt in tree_list:
+            print tt['agent'],tt['zone'],tt['ip'],tt['gamedata'],tt['javadir']
+            serverIp = [tt['ip']]
+            ip = serverIp[0]
+            AnsibleModuleName = "synchronize"
+            AnsibleInventory = ansible.inventory.Inventory(serverIp)
+            AnsibleCommand = "src=/var/ftp/qmrserver/tt/ dest=%s" % tt['javadir']
+            try:
+                AnsibleApiResult = json.loads(AnsibleApi(AnsibleModuleName,AnsibleInventory,AnsibleCommand))
                 #print ip
-
-#             ExecResult =  AnsibleApiResult['contacted']['%s' % ip]['changed']
-#             print ExecResult
+                
+#                ExecResult =  AnsibleApiResult['contacted']['%s' % ip]['changed']
+                #print ExecResult
                 #if not AnsibleApiResult:
                  #   AnsibleApiResult = 'not exec success'
-        except:
-            write_log('ansible exception')
-
+            except:
+                write_log('ansible exception')
+            
      #       ip = serverlist.objects.values('ipaddress').filter(agent=tt['agent'],zone=tt['zone'])
-
+    except:
+        pass
     return render_to_response('updatejava.html')

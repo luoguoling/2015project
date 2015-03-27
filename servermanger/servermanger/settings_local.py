@@ -1,10 +1,10 @@
 __author__ = 'Administrator'
 LOGMANGER_MYSQL = {
-        "host": "xxxx",
-        "port": xxx,
+        "host": "211.237.12.103",
+        "port": 5849,
         "database": "serverlist",
-        "user": "xxx",
-        "password": "xxxx"
+        "user": "select",
+        "password": "abc123?"
 
 
         }

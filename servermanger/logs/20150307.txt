@@ -1,0 +1,27 @@
+[2015-03-07-03-22-37]: can not find logname
+[2015-03-07-03-22-37]: cd /data/game/qmrserver72/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.72.201503070322.tgz  QMRserver.log.2015030701 QMRserver.log.2015030702 QMRserver.log.2015030703 QMRserver.log.2015030704 QMRserver.log.2015030705 QMRserver.log.2015030706 QMRserver.log.2015030707 QMRserver.log.2015030708 QMRserver.log.2015030709 QMRserver.log.2015030710 QMRserver.log.2015030711 QMRserver.log.2015030712 QMRserver.log.2015030713 QMRserver.log.2015030714 QMRserver.log.2015030715 QMRserver.log.2015030716 QMRserver.log.2015030717 QMRserver.log.2015030718 QMRserver.log.2015030719 QMRserver.log.2015030720 QMRserver.log.2015030721 QMRserver.log.2015030722 QMRserver.log.2015030723 QMRserver.log
+[2015-03-07-03-24-19]: can not find logname
+[2015-03-07-03-24-19]: cd /data/game/qmrserver72/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.72.201503070324.tgz  QMRserver.log.2015030601 QMRserver.log.2015030602 QMRserver.log.2015030603 QMRserver.log.2015030604 QMRserver.log
+[2015-03-07-03-24-33]: can not find logname
+[2015-03-07-03-24-33]: cd /data/game/qmrserver1/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.1.201503070324.tgz  QMRserver.log.2015030701 QMRserver.log.2015030702 QMRserver.log.2015030703 QMRserver.log.2015030704 QMRserver.log
+[2015-03-07-03-26-52]: can not find logname
+[2015-03-07-03-26-52]: cd /data/game/qmrserver1/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.1.201503070326.tgz  QMRserver.log.2015030701 QMRserver.log.2015030702 QMRserver.log.2015030703 QMRserver.log.2015030704 QMRserver.log
+[2015-03-07-03-27-25]: can not find logname
+[2015-03-07-03-27-25]: cd /data/game/qmrserver1/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.1.201503070327.tgz  QMRserver.log.2015030701 QMRserver.log.2015030702 QMRserver.log.2015030703 QMRserver.log.2015030704 QMRserver.log
+[2015-03-07-03-29-47]: can not find logname
+[2015-03-07-03-29-47]: cd /data/game/qmrserver1/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.1.201503070329.tgz  QMRserver.log.2015030701 QMRserver.log.2015030702 QMRserver.log.2015030703 QMRserver.log.2015030704 QMRserver.log
+[2015-03-07-03-30-54]: logpath is exist
+[2015-03-07-03-35-32]: can not find logname
+[2015-03-07-03-35-32]: cd /data/game/qmrserver1/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.1.201503070335.tgz  QMRserver.log.2015030701 QMRserver.log.2015030702 QMRserver.log.2015030703 QMRserver.log.2015030704 QMRserver.log
+[2015-03-07-03-45-13]: can not find logname
+[2015-03-07-03-45-13]: cd /data/game/qmrserver1/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.1.201503070345.tgz  QMRserver.log.2015030701 QMRserver.log.2015030702 QMRserver.log.2015030703 QMRserver.log.2015030704 QMRserver.log
+[2015-03-07-03-47-16]: can not find logname
+[2015-03-07-03-47-16]: tail -n 100 /data/game/qmrserver1/qmrserver/game/logs/QMRserver.log.2015030711
+[2015-03-07-03-47-32]: logpath is exist
+[2015-03-07-03-47-41]: logpath is exist
+[2015-03-07-03-47-51]: can not find logname
+[2015-03-07-03-47-51]: tail -n 100 /data/game/qmrserver1/qmrserver/game/logs/QMRserver.log.2015030711
+[2015-03-07-03-48-03]: can not find logname
+[2015-03-07-03-48-03]: cd /data/game/qmrserver1/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.1.201503070348.tgz  QMRserver.log.2015030701 QMRserver.log.2015030702 QMRserver.log.2015030703 QMRserver.log.2015030704 QMRserver.log
+[2015-03-07-09-00-17]: can not find logname
+[2015-03-07-09-00-17]: tail -n 100 /data/game/qmrserver1/qmrserver/game/logs/QMRserver.log.2015030716

@@ -1,0 +1,2 @@
+[2015-03-12-10-00-23]: can not find logname
+[2015-03-12-10-00-23]: cd /data/game/qmrserver18/qmrserver/game/logs  &&  tar  zvcf /data/www/download/hgpupugame.gamelog.18.201503121000.tgz  QMRserver.log.2015031217 QMRserver.log
